@@ -4,7 +4,7 @@ MAINTAINER gorpher gorpher101@gmail.com
 
 RUN mkdir -p /home/root/workdir
 
-ADD static-service-linux-amd64  /home/root/workdir
+ADD  build/static-service-linux-amd64  /usr/bin/
 
 ENV APP_HOME  /home/root/workdir
 

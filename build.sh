@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 export GOOS=linux
+export GOARCH=amd64
 export CGO_ENABLED=0
 go mod tidy
-go build  -o static-service-linux-amd64 .
+go build  -o  build/static-service-linux-amd64 .
 echo built $(pwd)
-echo "go build success!!!"
+echo "go build static-service-linux-amd64 success!!!"
 
-docker build -t gorpher/static-service:latest .
-rm -f static-service-linux-amd64
+export GOOS=windows
+export GOARCH=amd64
+export CGO_ENABLED=0
+go build  -o build/static-service-windows-amd64 .
+echo built $(pwd)
+echo "go build static-service-windows-amd64 success!!!"
